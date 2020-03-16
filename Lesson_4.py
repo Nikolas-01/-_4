@@ -60,24 +60,32 @@ print()
 
 #########################################################################################################
 # 3. Напишите функцию вывода самой редкой буквы, с которого начинаются имена в списке на выходе функции F.
+# Напишите функцию вывода самой редкой буквы,
+# с которого начинаются имена в списке на выходе функции F
+##############################################################################################
+def get_most_rare_letter(items=[]):
+    """
+    :param items: item list to find out the most rarely occurred
+    :return: one object from the item list
+    """
 
-def rare_letter(lst):
-    lst = map(lambda x: x[0], lst)  # 'Список' из первых букв
-    return Counter(lst).most_common()[-1:][0][0]
+    from operator import itemgetter
+    if len(items) == 0:
+        return 'Not existed'
+    else:
+        # get all first letters list
+        first_letters_list = list(map(lambda x: x[0], items))
 
-print(rare_letter(list_F))
-list_F += ['xxxxxxxxx']  # Добавим редкую букву)
-print(rare_letter(list_F))
+        # get the unique letters set
+        first_letters_set = set(first_letters_list)
 
-print()
-#########################################################################
-# 4. В файле с логами найти дату самого позднего лога (по метке времени).
+        # counts for each unique letter
+        pairs = list(map(lambda x: (x, first_letters_list.count(x)), first_letters_set))
+        sorted_pairs = sorted(pairs, key=itemgetter(1), reverse=False)
+        print('General statistics: ', sorted_pairs)
+        pair_min = sorted_pairs[0]
+        return pair_min
 
-with open('log', mode='rt', encoding='utf-8') as f:
-    text = f.read()
-print(text, '\n')
 
-text = text.split('\n')
-last_log = max(text, key=lambda x: x[:23])
-print('Cамый поздний лог:', last_log)
-print('И его метка времени:', last_log[:23])
+min_counts_letter = get_most_rare_letter( get_random_items(test_list, 200))
+print('The word with minimum counts: ', min_counts_letter)

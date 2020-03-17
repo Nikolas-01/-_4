@@ -24,7 +24,7 @@ def name_n(list_names, n):
         list_names_random.append(newName)
     return list_names_random
 list_names_random = name_n(list_names, 100) # n == 100
-print('Список: \n%s\nКоличество слов: %s\nИзначально слов: %s' % (list_names_random, len(list_names_random), len(list_names)))
+print('Список: \n%s\nПолучилось слов: %s\nБыло: %s' % (list_names_random, len(list_names_random), len(list_names)))
 print()
 print()
 ###############################################################################
@@ -56,6 +56,8 @@ def popular_name(list_names_random):
 
 print('Имя:', popular_name(list_names_random))
 print()
+
+print('Задача 3.\nСамая редкая буква, с которой начинается имя:')
 
 
 #########################################################################################################
@@ -89,3 +91,6 @@ def get_most_rare_letter(items=[]):
 
 min_counts_letter = get_most_rare_letter( get_random_items(test_list, 200))
 print('The word with minimum counts: ', min_counts_letter)
+
+
+

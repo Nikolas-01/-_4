@@ -55,7 +55,8 @@ def popular_name(list_names_random):
 print('Популярные:', popular_name(list_names_random))
 print()
 
-print('Lesson 3.\nРедкая буква, с которой начинается имя:')
+print('Lesson 3.\nРедкая буква, с которой начинается имя:'
+      'л')
 
 
 
@@ -87,4 +88,13 @@ min_counts_letter = get_most_rare_letter( get_random_items(test_list, 200))
 print('The word with minimum counts: ', min_counts_letter)
 
 
+def rare_letter(lst):
+    lst = map(lambda x: x[0], lst)  # 'Список' из первых букв
+    return Counter(lst).most_common()[-1:][0][0]
+
+print(rare_letter(list_names))
+list_F += ['xxxxxxxxx']  # Добавим редкую букву)
+print(rare_letter(list_names))
+
+print()
 

@@ -25,7 +25,7 @@ list_names_random = name_n(list_names, 100) # n == 100
 print('Список: \n%s\nПолучилось слов: %s\nБыло: %s' % (list_names_random, len(list_names_random), len(list_names)))
 print()
 print()
-###############################################################################
+
 # 2. Напишите функцию вывода самого частого имени из списка на выходе функции F;
 
 print("Lesson 2. \nПопулярное имя:"
